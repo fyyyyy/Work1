@@ -131,7 +131,7 @@
 		// loop over the note areas
 		for (var r=0; r<8; ++r) {
 			// get the pixels in a note area from the blended image
-			
+
 			var i = 0;
 			var average = 0;
 			// loop over the pixels
@@ -143,7 +143,7 @@
 			// calculate an average between of the color values of the note area
 			average = Math.round(average / (blendedData.data.length * 0.25));
 			if (average > 10) {
-				
+
 			}
 		}
 	}
@@ -162,7 +162,7 @@
 				analyseRaster(x,y);
 			}
 		}
-		
+
 		console.log(whiteRasterCounter);
 
 	}
@@ -170,9 +170,11 @@
 		var rasterSizeX =  10;
 		var rasterSizeY =  10;
 		var pixelCounter = 0;
-		
-		// A Uint8ClampedArray representing a one-dimensional array containing the data in the RGBA order, with integer values between 0 and 255 (included).
-		// it goes like this : [ 1st_Pixel_Red, 1st_Pixel_Green, 1st_Pixel_Blue, 1st_Pixel_Alpha, 2nd_Pixel_Red etc...
+
+        /*
+        /  A Uint8ClampedArray representing a one-dimensional array containing the data in the RGBA order, with integer values between 0 and 255 (included).
+		/  It goes like this : [ 1st_Pixel_Red, 1st_Pixel_Green, 1st_Pixel_Blue, 1st_Pixel_Alpha, 2nd_Pixel_Red etc...
+        */
 		var rasterPixels = contextBlended.getImageData(x*rasterSizeX,y*rasterSizeY,rasterSizeX,rasterSizeY);
 		for (var i = 4*rasterSizeX * rasterSizeY; i >= 0; i--) {
 			//RGB -> we only care about red!
@@ -184,7 +186,7 @@
 				raster[x][y] = true;
 				whiteRasterCounter ++;
 		}
-		
+
 
 	}
 
